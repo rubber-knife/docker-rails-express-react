@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  db:
+    image: postgres
+  ruby:
+    build: ./rails
+    command: bundle exec rails s -p 3002 -b '0.0.0.0'
+    volumes:
+      - ./rails:/rails
+    ports:
+      - '3002:3002'
+    depends_on:
+      - db
+  express:
+    build: ./express
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./express:/express
+  react:
+    build: ./react
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./react:/client/
+      - /client/node_modules
