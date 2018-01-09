@@ -3,10 +3,10 @@ services:
   db:
     image: postgres
   ruby:
-    build: ./rails
+    build: ./rails-api
     command: bundle exec rails s -p 3002 -b '0.0.0.0'
     volumes:
-      - ./rails:/rails
+      - ./rails-api:/rails
     ports:
       - '3002:3002'
     depends_on:
