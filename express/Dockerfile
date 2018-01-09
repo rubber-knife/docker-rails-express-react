@@ -9,4 +9,4 @@ COPY yarn.lock ./
 
 RUN npm install
 
-cmd [ "nodemon" ]
+CMD [ "nodemon" ]
