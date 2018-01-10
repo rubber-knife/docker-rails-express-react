@@ -8,8 +8,8 @@ services:
     container_name: nginx-web
     restart: unless-stopped
     ports:
-      - '5080:80'
-      - '5443:443'
+      - '80:80'
+      - '443:443'
     volumes:
       - ${NGINX_PATH}/conf.d:/etc/nginx/conf.d
       - ${NGINX_PATH}/vhost.d:/etc/nginx/vhost.d
