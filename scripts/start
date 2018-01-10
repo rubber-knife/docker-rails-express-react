@@ -8,14 +8,14 @@ else
     exit 1
 fi
 
-# Create docker network
+# Create main network for web services to run in
 docker network create nginx
 
-# Fetch latest nginx.tmpl
+# Fetch latest nginx template
 curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl
 
 # Spin up nginx + letsencrypt companion
 docker-compose -f nginx-proxy.yml up -d
 
-# Spin up services
-docker-compose up
+# Spin up app-related services
+docker-compose up -d

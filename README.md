@@ -4,6 +4,5 @@
 1. `git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
 2. `cd docker`
 3. `docker-compose build`
-4. `docker-compose run ruby rails db:create`
-5. `docker-compose run ruby rails db:migrate`
-4. `docker-compose up`
+4. `docker-compose run ruby rails db:create db:migrate`
+5. `docker-compose up`
