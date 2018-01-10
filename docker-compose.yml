@@ -11,10 +11,13 @@ services:
     command: bundle exec rails s -p 3002 -b '0.0.0.0'
     volumes:
       - ./rails-api:/rails
-    ports:
-      - '3002:3002'
     depends_on:
       - db
+    environment:
+      - VIRTUAL_HOST=api.donaldgeddes.ca
+      - LETSENCRYPT_HOST=api-test.donaldgeddes.ca
+      - LETSENCRYPT_EMAIL=hi@donaldgeddes.ca
+    network: webproxy
 
   express:
     container_name: express
