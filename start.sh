@@ -9,10 +9,13 @@ else
 fi
 
 # Create docker network
-docker network create nginx-proxy
+docker network create webproxy
 
 # Fetch latest nginx.tmpl
 curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl
+
+# Spin up nginx + letsencrypt companion
+docker-compose -f nginx-proxy.yml up
 
 # Spin up services
 docker-compose up
