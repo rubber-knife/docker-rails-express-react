@@ -40,3 +40,8 @@ services:
     volumes:
       - ./react:/client/
       - /client/node_modules
+
+networks:
+  default:
+    external:
+      name: nginx
