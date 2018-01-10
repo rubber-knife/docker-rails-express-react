@@ -17,8 +17,6 @@ services:
       - VIRTUAL_HOST=api.donaldgeddes.ca
       - LETSENCRYPT_HOST=api-test.donaldgeddes.ca
       - LETSENCRYPT_EMAIL=hi@donaldgeddes.ca
-    networks:
-      - webproxy
 
   express:
     container_name: express
