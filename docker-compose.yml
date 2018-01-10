@@ -1,9 +1,13 @@
 version: '3.3'
+
 services:
   db:
     image: postgres
+    container_name: psql
+
   ruby:
     build: ./rails-api
+    container_name: rails
     command: bundle exec rails s -p 3002 -b '0.0.0.0'
     volumes:
       - ./rails-api:/rails
@@ -11,14 +15,18 @@ services:
       - '3002:3002'
     depends_on:
       - db
+
   express:
     build: ./express
+    container_name: express
     ports:
       - '3001:3001'
     volumes:
       - ./express:/express
+
   react:
     build: ./react
+    container_name: react
     ports:
       - '3000:3000'
     volumes:
