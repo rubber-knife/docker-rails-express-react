@@ -13,7 +13,7 @@ services:
     volumes:
       - ${NGINX_PATH}/conf.d:/etc/nginx/conf.d
       - ${NGINX_PATH}/vhost.d:/etc/nginx/vhost.d
-      - ${NGINX_PATH}/html:/etc/nginx/html
+      - ${NGINX_PATH}/html:/usr/share/nginx/html
       - ${NGINX_PATH}/certs:/etc/nginx/certs:ro
       - ${NGINX_PATH}/htpasswd:/etc/nginx/htpasswd:ro
   nginx-gen:
@@ -22,8 +22,8 @@ services:
     container_name: docker-gen
     restart: unless-stopped
     volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
     volumes_from:
       - nginx-web
   nginx-letsencrypt:
@@ -41,7 +41,9 @@ services:
   # app set up
   db:
     image: postgres
+    container_name: db
   ruby:
+    container_name: ruby
     build: ./rails-api
     command: bundle exec rails s -p 3002 -b '0.0.0.0'
     volumes:
@@ -51,12 +53,14 @@ services:
     depends_on:
       - db
   express:
+    container_name: express
     build: ./express
     ports:
       - '3001:3001'
     volumes:
       - ./express:/express
   react:
+    container_name: react
     build: ./react
     ports:
       - '3000:3000'
