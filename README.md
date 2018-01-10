@@ -16,6 +16,6 @@
     - `$ docker images` — lists all of the images you've built (or else pulled to the machine)
     - `$ docker rmi <IMAGE ID/REPOSITORY>` — removes an image
     - `$ docker network ls` — lists networks
-    - `$ docker network inspect <NETWORK ID/NAME` — provides info re: a single network, eg. which containers are a part of the network
+    - `$ docker network inspect <NETWORK ID/NAME>` — provides info re: a single network, eg. which containers are a part of the network
     - `$ docker volume ls` — lists volumes
     - `$ docker container/volume/network prune` — removes unused docker resources
