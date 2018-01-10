@@ -15,7 +15,7 @@ docker network create webproxy
 curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl
 
 # Spin up nginx + letsencrypt companion
-docker-compose -f nginx-proxy.yml up
+docker-compose -f nginx-proxy.yml up -d
 
 # Spin up services
 docker-compose up
