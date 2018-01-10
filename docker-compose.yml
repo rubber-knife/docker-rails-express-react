@@ -8,23 +8,31 @@ services:
   ruby:
     container_name: ruby
     build: ./rails-api
-    command: bundle exec rails s -p 3002 -b '0.0.0.0'
+    expose:
+      - '80'
+    command: bundle exec rails s -p 80 -b '0.0.0.0'
     volumes:
       - ./rails-api:/rails
     depends_on:
       - db
     environment:
-      - VIRTUAL_HOST=api.donaldgeddes.ca
-      - LETSENCRYPT_HOST=api-test.donaldgeddes.ca
+      - VIRTUAL_HOST=rails.donaldgeddes.ca
+      - LETSENCRYPT_HOST=rails.donaldgeddes.ca
       - LETSENCRYPT_EMAIL=hi@donaldgeddes.ca
 
   express:
     container_name: express
     build: ./express
+    expose:
+      - '80'
     ports:
       - '3001:3001'
     volumes:
       - ./express:/express
+    environment:
+      - VIRTUAL_HOST=express.donaldgeddes.ca
+      - LETSENCRYPT_HOST=express.donaldgeddes.ca
+      - LETSENCRYPT_EMAIL=hi@donaldgeddes.ca
 
   react:
     container_name: react
