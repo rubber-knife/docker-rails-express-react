@@ -6,7 +6,7 @@
 3. `$ docker-compose up` (the first time you run this it will take a _long time_; subsequent executions will be much, much faster)
 4. `$ docker-compose run ruby rails db:create db:migrate`
 5. This is strictly a dev solution:
-    - A testing/staging/production workflow still needs to be established (see: https://github.com/rubber-knife/docker-rails-express-react/tree/prod)
+    - A testing/staging/production workflow still needs to be established (see: [branch/prod]https://github.com/rubber-knife/docker-rails-express-react/tree/prod)
     - It's yet unclear to me how exactly data is persisted in development/production environments (todo: read more about volumes)
 
 ## Notes
