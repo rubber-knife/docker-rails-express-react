@@ -8,7 +8,7 @@
 4. `$ docker-compose run ruby rails db:create db:migrate`
 
 ## Notes
-1. Use CTRL+C to wind down the containers; this is more or less equivalent to running `docker_compose down` from a separate terminal
+1. You can Use `CTRL+C` to wind down containers; this is more or less equivalent to running `docker_compose down` from a separate terminal
 2. `$ docker container ls` will list active/running containers
 2. `$ docker container ls --all` will list all containers, regardless of status
 4. `$ docker container stop <CONTAINER ID/NAME>` will terminate the container process but not remove the build
