@@ -15,6 +15,6 @@
 6. Other primary/useful docker commands:
     - `$ docker images` — lists all of the images you've built (or else pulled to the machine)
     - `$ docker rmi <IMAGE ID || REPOSITORY>` — removes an image
-    - `$ docker volume || network ls` — as with a container, this lists volumes/networks
-    - `$ docker container || volume || network inspect <ID/NAME>` — provides verbose info , eg. which containers are a part of a network
-    - `$ docker container || volume || network prune` — removes unused docker resources
+    - `$ docker (volume || network) ls` — as with a container, this lists volumes/networks
+    - `$ docker (container || volume || network) inspect <ID/NAME>` — provides verbose info , eg. which containers are a part of a network
+    - `$ docker (container || volume || network) prune` — removes unused docker resources
