@@ -15,7 +15,8 @@
 2. `$ docker container ls (-a || --all)` — lists all containers, regardless of status
 4. `$ docker container stop <CONTAINER ID || NAME>` — terminates the container process but doesn't remove the build
 5. `$ docker container start <CONTAINER ID || NAME>` — resumes stopped containers
-6. Other primary/useful docker commands:
+6. `$ docker container rm` — removes docker container (use `--force` to force the removal of a running container)
+7. Other primary/useful docker commands:
     - `$ docker images` — lists all of the images you've built (or else pulled to the machine)
     - `$ docker rmi <IMAGE ID || REPOSITORY>` — removes an image
     - `$ docker (volume || network) ls` — as with a container, this lists volumes/networks
