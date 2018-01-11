@@ -25,7 +25,7 @@
 7. `post-receive` script handles any final loose ends before spinning up Docker images
 
 ## Current (in progress) workflow
-1. After running `./scripts/start`, two separate docker_compose files will be executed
+1. After running `./scripts/start`, two separate docker-compose files will be executed
     1. `nginx-proxy.yml` creates the following containers:
         - `nginx` — self-explanatory
         - `jwilder/docker-gen` — detects any container changes by analyzing `docker.sock`; notifies `nginx` and `letsencrypt-nginx-proxy-companion` when necessary
