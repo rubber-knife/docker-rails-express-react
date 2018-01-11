@@ -2,7 +2,6 @@
 set -x
 
 if [ $TRAVIS_BRANCH == 'workflow/react' ] ; then
-    # Initialize a new git repo in _site, and push it to our server.
     git init
 
     git remote add deploy "git@donaldgeddes.ca:~/workflow-react.git"
