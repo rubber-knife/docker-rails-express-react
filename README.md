@@ -7,6 +7,7 @@
 4. This is where things get hazy...
     - I think one option is to create a new docker image on the spot, integrating the build files, using Travis
     - Alternatively, integrating the build into the Express container could be done on the production server
+    - The Big Question: when/where to build React?
 5. Push build using git to production server
 6. Server triggers `post-receive` git hook
 7. `post-receive` script handles spinning up Docker images, etc.
