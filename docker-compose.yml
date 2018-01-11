@@ -1,25 +1,6 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
-    container_name: db
-
-  ruby:
-    container_name: ruby
-    build: ./rails-api
-    expose:
-      - '80'
-    command: bundle exec rails s -p 80 -b '0.0.0.0'
-    volumes:
-      - ./rails-api:/rails
-    depends_on:
-      - db
-    environment:
-      - VIRTUAL_HOST=rails.${HOST}
-      - LETSENCRYPT_HOST=rails.${HOST}
-      - LETSENCRYPT_EMAIL={EMAIL}
-
   express:
     container_name: express
     build: ./express
@@ -28,8 +9,8 @@ services:
     volumes:
       - ./express:/express
     environment:
-      - VIRTUAL_HOST=express.${HOST}
-      - LETSENCRYPT_HOST=express.${HOST}
+      - VIRTUAL_HOST=frontend.${HOST}
+      - LETSENCRYPT_HOST=frontend.${HOST}
       - LETSENCRYPT_EMAIL=${EMAIL}
 
   react:

@@ -1,2 +1,0 @@
-class Ruby < ApplicationRecord
-end
