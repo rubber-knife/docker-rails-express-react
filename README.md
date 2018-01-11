@@ -3,7 +3,7 @@
 ## Workflow goals
 1. Push to github
 2. Service hook fires; Travis CI is triggered
-3. Travis runs tests — (if branch === master?) creates React build
+3. Travis runs tests — (if branch === master?) creates React build and deploys
 4. This is where things get hazy...
     - Because this deployment solution relies on dynamically creating/updating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, &c.) to serve the build
     - To this end, I think one option is to create a new docker image on the spot, integrating the build files into the Express container (by creating a volume?), which would run as a script during the `after_success` stage in the `travis.yml`
