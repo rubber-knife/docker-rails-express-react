@@ -32,7 +32,7 @@
         - `ruby` — serves Rails
         - `express` — serves Express w/ `nodemon` (need to 86 `nodemon` in production and ensure logs are written to file)
         - `react` — serves React w/ webpack-dev-server (this has to be changed for staging/production)
-2. New nginx blocks can now be found in `/etc/nginx/conf.d/default.conf` — one for Rails, one for Express
+2. New nginx blocks for Rails and Express can now be found in `/etc/nginx/conf.d/default.conf`
 
 ## Notes
 1. `$ ./scripts/start` — initializes docker environment, eg. creates base network; runs `docker-compose` files
