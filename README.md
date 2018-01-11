@@ -5,7 +5,7 @@
 2. Service hook fires; Travis CI is triggered
 3. Travis runs tests, creates React build
 4. This is where things get hazy...
-    - I think one option is to create a new image on the spot, integrating the build files, using Travis
+    - I think one option is to create a new docker image on the spot, integrating the build files, using Travis
     - Alternatively, integrating the build into the Express container could be done on the production server
 5. Push build using git to production server
 6. Server triggers `post-receive` git hook
