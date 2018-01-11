@@ -5,6 +5,9 @@ language: ruby
 services:
   - docker
 
+git:
+   depth: 9999999
+
 addons:
   ssh_known_hosts: donaldgeddes.ca
 
