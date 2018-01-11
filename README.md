@@ -14,13 +14,15 @@
 
 
 ## Instructions
-Note: DNS must be set up to forward `your-domain.tld` to your current working host for this to work
 1. `$ git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
 2. `$ cd docker`
 3. `$ cp .env.example .env` — adjust variables as necessary
 3. `$ ./scripts/start`
 5. `$ docker-compose run ruby rails db:create db:migrate`
 6. Verify things are working — eg. check out `https://rails.your-domain.tld`
+Notes:
+    - DNS must be set up to forward `your-domain.tld` to your current working host for this to work
+    - Only one instance of nginx can be bound to port 80; avoid potentionally conflicting instances by running something akin to `sudo service nginx stop`
 
 ## Current (in progress) workflow
 1. After running `./scripts/start`, two separate docker_compose files will be executed
@@ -35,5 +37,5 @@ Note: DNS must be set up to forward `your-domain.tld` to your current working ho
         - `react` — serves React w/ webpack-dev-server (this has to be changed for staging/production)
 2. New nginx blocks for Rails and Express can now be found in `/etc/nginx/conf.d/default.conf`
 
-## Notes
+## Miscellaneous
 1. `$ ./scripts/start` — initializes docker environment, eg. creates base network; runs `docker-compose` files
