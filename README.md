@@ -13,11 +13,11 @@
 
 
 ## Instructions
-1. `git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
-2. `cd docker`
-3. `cp .env.example .env` — adjust variables as necessary
-3. `./scripts/start`
-5. `docker-compose run ruby rails db:create db:migrate`
+1. `$ git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
+2. `$ cd docker`
+3. `$ cp .env.example .env` — adjust variables as necessary
+3. `$ ./scripts/start`
+5. `$ docker-compose run ruby rails db:create db:migrate`
 
 ## Current workflow
 1. After running `./scripts/start`, two separate docker_compose files will be executed
@@ -32,4 +32,4 @@
         - `react` — serves React w/ webpack-dev-server (this has to be changed for staging/production)
 
 ## Notes
-1. `./scripts/start` — initializes docker environment, eg. creates base network; runs `docker-compose` files
+1. `$ ./scripts/start` — initializes docker environment, eg. creates base network; runs `docker-compose` files
