@@ -5,9 +5,8 @@
 2. Service hook fires; Travis CI is triggered
 3. Travis runs tests — (if branch === master?) creates React build and deploys
 4. This is where things get hazy...
-    - Because this deployment solution relies on dynamically creating/updating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, etc.) to serve the build
-    - To this end, I think one option is to create a new Docker image on the spot, giving the Express container access to the React build (by creating a volume?), which would run as a script during the `after_success` stage in the `travis.yml`
-    - Alternatively, integrating the build into the Express container could be done on the production server
+    - In the past I've found nginx handy to serve static assets (from, say, `/var/www/project/build`) for React builds, but because this deployment solution relies on dynamically creating/updating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, etc.) to serve the build
+    - To this end, one option might? be to configure the Express Dockerfile to share a common `/express/build` volume with the host which contains the React assets, then Express could be configured with something like: `.use(express.static(__dirname + '/build'))`
 5. Push using git to production server
 6. Production server triggers `post-receive` git hook
 7. `post-receive` script handles any final loose ends before spinning up Docker images
