@@ -12,7 +12,7 @@
 ## Notes
 1. You can Use `CTRL+C` to wind down containers; this is more or less equivalent to running `$ docker_compose down` from a separate terminal
 2. `$ docker container ls` — lists all active/running containers
-2. `$ docker container ls --all` — lists all containers, regardless of status
+2. `$ docker container ls (-a || --all)` — lists all containers, regardless of status
 4. `$ docker container stop <CONTAINER ID || NAME>` — terminates the container process but doesn't remove the build
 5. `$ docker container start <CONTAINER ID || NAME>` — resumes stopped containers
 6. Other primary/useful docker commands:
