@@ -20,15 +20,15 @@
 3. `$ ./scripts/start`
 5. `$ docker-compose run ruby rails db:create db:migrate`
 
-## Current workflow
+## Current (in progress) workflow
 1. After running `./scripts/start`, two separate docker_compose files will be executed
     1. `nginx-proxy.yml`
         - `nginx` — self-explanatory
         - `jwilder/docker-gen` — detects any container changes by analyzing `docker.sock`; notifies `nginx` and `letsencrypt-nginx-proxy-companion` when necessary
         - `jrcs/letsencrypt-nginx-proxy-companion` — automatically create/maintain lets-encrypt config on notifications from `jwilder/docker-gen`
     2. `docker-compose.yml`
-        - `postgres` — self-explanatory
-        - `ruby` — serves Rails 5.1.4 API-only
+        - `postgres` — self-explanatory (note: still need to research user/password envrionment variables)
+        - `ruby` — serves Rails
         - `express` — serves Express w/ `nodemon` (need to 86 `nodemon` in production and ensure logs are written to file)
         - `react` — serves React w/ webpack-dev-server (this has to be changed for staging/production)
 
