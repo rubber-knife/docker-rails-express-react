@@ -8,7 +8,7 @@
     - Because this deployment solution relies on dynamically creating/updating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express vs. adding nginx configuration manually to serve the build
     - To this end, I think one option is to create a new docker image on the spot, integrating the build files into the Express container (by creating a volume?), by running a script during the `after_success` stage
     - Alternatively, integrating the build into the Express container could be done on the production server
-5. Push build using git to production server
+5. Push using git to production server
 6. Server triggers `post-receive` git hook
 7. `post-receive` script handles spinning up Docker images, etc.
 
