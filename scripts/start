@@ -9,7 +9,7 @@ else
 fi
 
 # Create main network for services to run on
-docker network create nginx
+docker network create ${NETWORK}
 
 # Fetch latest nginx conf template
 curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl
