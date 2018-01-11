@@ -14,7 +14,7 @@
 
 
 ## Instructions
-(DNS must be set up to forward your domain to your current host for this to work)
+Note: DNS must be set up to forward your.domaind.tld to your current host for this to work
 1. `$ git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
 2. `$ cd docker`
 3. `$ cp .env.example .env` — adjust variables as necessary
