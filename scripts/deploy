@@ -2,8 +2,6 @@
 set -x
 
 if [ $TRAVIS_BRANCH == 'workflow/react' ] ; then
-    git init
-
     git remote add deploy "git@donaldgeddes.ca:~/workflow-react.git"
     git config user.name "Travis CI"
     git config user.email "hi@donaldgeddes.ca"
