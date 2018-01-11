@@ -10,7 +10,7 @@
     - It's still unclear to me how exactly data is persisted in development/production environments (todo: read more about volumes)
 
 ## Notes
-1. You can Use `CTRL+C` to wind down containers; this is more or less equivalent to running `$ docker_compose down` from a separate terminal
+1. You can use `CTRL+C` to wind down containers; this is more or less equivalent to running `$ docker_compose down` from a separate terminal
 2. `$ docker container ls` — lists all active/running containers
 2. `$ docker container ls (-a || --all)` — lists all containers, regardless of status
 4. `$ docker container stop <CONTAINER ID || NAME>` — terminates the container process but doesn't remove the build
