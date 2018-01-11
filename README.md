@@ -6,7 +6,7 @@
 3. Travis runs tests
     - if (branch === master?) { create React build and deploy }
 4. This is where things get hazy...
-    - In the past I've found nginx handy to serve static assets (from, say, `/var/www/project/client/build`) for React builds, but because this deployment solution relies on dynamically populating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, etc.) to serve the build
+    - In the past I've found it handy to manually include a basic nginx config to serve static assets (from, say, `/var/www/project/client/build`) for React builds, but because this deployment solution relies on dynamically populating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, etc.) to serve the build
     - To this end, one option might? be to configure the Express Dockerfile to map a volume (`./react/build:/express/public`) with the host which contains the React assets — then with Express it's just plain-old: `.use(express.static(__dirname + '/public'))`
 5. Push using git to production server
 6. Production server triggers `post-receive` git hook
