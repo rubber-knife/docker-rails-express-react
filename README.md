@@ -4,9 +4,8 @@
 1. `$ git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
 2. `$ cd docker`
 3. `$ cp .env.example .env` — adjust variables as necessary
-3. `$ ./scripts/start`
-5. `$ docker-compose run ruby rails db:create db:migrate`
-6. Verify things are working — eg. check out `https://rails.your-domain.tld`
+4. `$ ./scripts/start`
+5. Verify things are working — eg. check out `https://rails.your-domain.tld`
 
 #### Notes:
 - DNS must be set up to forward `your-domain.tld` to your current working host for this to work

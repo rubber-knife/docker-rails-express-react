@@ -19,3 +19,6 @@ docker-compose -f nginx-proxy.yml up -d
 
 # Spin up app-related services
 docker-compose up -d
+
+# Take care of initial Rails tasks
+docker-compose run ruby rails db:create db:migrate
