@@ -23,7 +23,7 @@
 
 #### Notes:
 - DNS must be set up to forward `your-domain.tld` to your current working host for this to work
-- Only one instance of nginx can be bound to port 80; avoid potentionally conflicting instances by running something akin to `sudo service nginx stop`
+- Only one instance of nginx can be bound to port 80; avoid potentionally conflicting instances by running something akin to `sudo service nginx stop` before beginning
 
 ## Current (in progress) workflow
 1. After running `./scripts/start`, two separate docker_compose files will be executed
