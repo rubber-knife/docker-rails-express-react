@@ -8,10 +8,10 @@ else
     exit 1
 fi
 
-# Create main network for web services to run in
+# Create main network for services to run on
 docker network create nginx
 
-# Fetch latest nginx template
+# Fetch latest nginx conf template
 curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl
 
 # Spin up nginx + letsencrypt companion

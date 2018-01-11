@@ -16,9 +16,9 @@ services:
     depends_on:
       - db
     environment:
-      - VIRTUAL_HOST=rails.donaldgeddes.ca
-      - LETSENCRYPT_HOST=rails.donaldgeddes.ca
-      - LETSENCRYPT_EMAIL=hi@donaldgeddes.ca
+      - VIRTUAL_HOST=rails.${HOST}
+      - LETSENCRYPT_HOST=rails.${HOST}
+      - LETSENCRYPT_EMAIL={EMAIL}
 
   express:
     container_name: express
@@ -28,9 +28,9 @@ services:
     volumes:
       - ./express:/express
     environment:
-      - VIRTUAL_HOST=express.donaldgeddes.ca
-      - LETSENCRYPT_HOST=express.donaldgeddes.ca
-      - LETSENCRYPT_EMAIL=hi@donaldgeddes.ca
+      - VIRTUAL_HOST=express.${HOST}
+      - LETSENCRYPT_HOST=express.${HOST}
+      - LETSENCRYPT_EMAIL=${EMAIL}
 
   react:
     container_name: react
@@ -44,4 +44,4 @@ services:
 networks:
   default:
     external:
-      name: nginx
+      name: ${NETWORK}

@@ -32,8 +32,8 @@ services:
     container_name: lets-encrypt
     restart: unless-stopped
     volumes:
-      - ${NGINX_PATH}/certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${NGINX_PATH}/certs:/etc/nginx/certs:rw
     volumes_from:
       - nginx-web
     environment:
@@ -43,4 +43,4 @@ services:
 networks:
   default:
     external:
-      name: nginx
+      name: ${NETWORK}
