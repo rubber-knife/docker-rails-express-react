@@ -19,6 +19,7 @@
 3. `$ cp .env.example .env` — adjust variables as necessary
 3. `$ ./scripts/start`
 5. `$ docker-compose run ruby rails db:create db:migrate`
+6. Verify things are working — eg. check out https://rails.domain.tld
 
 ## Current (in progress) workflow
 1. After running `./scripts/start`, two separate docker_compose files will be executed
