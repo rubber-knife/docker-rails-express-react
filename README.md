@@ -25,7 +25,7 @@
     1. `nginx-proxy.yml`
         - `nginx` — self-explanatory
         - `jwilder/docker-gen` — detects any container changes by analyzing `docker.sock`; notifies `nginx` and `letsencrypt-nginx-proxy-companion` when necessary
-        - `jrcs/letsencrypt-nginx-proxy-companion` — automatically create/maintain lets-encrypt config on notifications from `jwilder/docker-gen`
+        - `jrcs/letsencrypt-nginx-proxy-companion` — automatically creates/maintains lets-encrypt config on notifications from `jwilder/docker-gen`
     2. `docker-compose.yml`
         - `postgres` — self-explanatory (note: still need to research user/password envrionment variables)
         - `ruby` — serves Rails
