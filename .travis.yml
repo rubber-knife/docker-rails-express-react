@@ -1,0 +1,21 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+addons:
+  ssh_known_hosts: donaldgeddes.ca
+
+before_install:
+  - bash scripts/setup
+
+script:
+  - bash scripts/test
+
+notifications:
+  slack:
+    secure: O6AYL1ay5bZOao//5oYqSlRwBzLlxqofh+v4YD0XvyodA+xnWU1l18+c8o3T/blwPzPccbVrfkPhhg2oDOXTtB4M1qoSs5zQaPz8XKEZ5JwBwAg2rmpXsbkEsveK2haEi91+ZEsegO1fe7G+ZZzyrOicqzUIZHO2RhHm4BDA1HDMGLO07vRFjfEupAhkmCGP6n7aiXumYpGZfQ1oppDJUs2vIMXl1MokXcOHCHgq11cJur8Wv5IkyJ8OiLgCsVMyH4sbxEJy4kNWI5NDIlL5EeO35Jf5+Ndk27gGey4xTYWT0h23fuqrASF2zLUs6O26iK2DDXsedWbh4nEkwC5VDkC0LjRxBUljfyItl0umONEsqR86d9tCZShqTDtJUOwdeumVysuIIaqnN6I+OkT9fS/XC3oERXj8IEgGWX4YuQpN+1dq8i7aFlTu/ZjOs/e9zcYSUWWwOQAqW0u8yRDSkz3Q7N+WTMXMm45bm/QeQDcVEBb1MoDFzmZSJmLUtZGEw0VbGIjbQF5eY6iyJrN8uW+rOpvM7H4J5V/5NtJkCf+b04YKMHrorCFKxI4rCfWm8COxKCMq8rgi7qxAVd+y8EcRvPktBMp90KbJgL0itI5L1aCV8uLTindl7nhMVr4pW6pDdYS9Tp6sY6MQ5jZ4bJrcwk9AFK5b0loz8rAdH8w=
+    on_success: always
+    on_failure: always
