@@ -28,7 +28,7 @@
     2. `docker-compose.yml`
         - `postgres` — self-explanatory
         - `ruby` — serves Rails 5.1.4 API-only
-        - `express` - serves Express w/ `nodemon`
+        - `express` — serves Express w/ `nodemon`
         - `react` — serves React w/ webpack-dev-server (this has to be changed for staging/production)
 
 ## Notes
