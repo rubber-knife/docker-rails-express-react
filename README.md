@@ -32,4 +32,4 @@
         - `react` — serves React w/ webpack-dev-server (this has to be changed for staging/production)
 
 ## Notes
-1. `./scripts/start` — initializes docker environment, eg. creates base network
+1. `./scripts/start` — initializes docker environment, eg. creates base network; runs `docker-compose` files
