@@ -3,11 +3,11 @@
 ## Workflow goals
 1. Push to github
 2. Service hook fires; Travis CI is triggered
-3. Travis runs tests, creates React build
+3. Travis runs tests, creates React build (if branch === master?)
 4. This is where things get hazy...
-    - I think one option is to create a new docker image on the spot, integrating the build files, using Travis
+    - Because this deployment solution relies on dynamically creating/updating nginx configurations from a template, it makes sense to serve the React build via (the automatically proxied) Express so that we don't have to modify nginx conf manually
+    - To this end, I think one option is to create a new docker image on the spot, integrating the build files into the Express container (by creating a volume?), during the `after_success` stage
     - Alternatively, integrating the build into the Express container could be done on the production server
-    - The Big Question: when/where to build React?
 5. Push build using git to production server
 6. Server triggers `post-receive` git hook
 7. `post-receive` script handles spinning up Docker images, etc.
@@ -25,7 +25,7 @@
     1. `nginx-proxy.yml`
         - `nginx` — self-explanatory
         - `jwilder/docker-gen` — detects any container changes by analyzing `docker.sock`; notifies `nginx` and `letsencrypt-nginx-proxy-companion` when necessary
-        - `jrcs/letsencrypt-nginx-proxy-companion` — uses `nginx.tmpl` to automatically create/maintain lets-encrypt config on notifications from `jwilder/docker-gen`
+        - `jrcs/letsencrypt-nginx-proxy-companion` — automatically create/maintain lets-encrypt config on notifications from `jwilder/docker-gen`
     2. `docker-compose.yml`
         - `postgres` — self-explanatory
         - `ruby` — serves Rails 5.1.4 API-only
