@@ -8,4 +8,4 @@ rm deploy-key.enc # Don't need it anymore
 chmod 600 deploy-key
 mv deploy-key ~/.ssh/id_rsa
 
-ls -lah !/.ssh
+ls -lah ~/.ssh
