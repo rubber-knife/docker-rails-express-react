@@ -3,7 +3,7 @@
 ## Workflow goals
 1. Push to github
 2. Service hook fires; Travis CI is triggered
-3. Travis runs tests — 
+3. Travis runs tests
     - if (branch === master?) { create React build and deploy }
 4. This is where things get hazy...
     - In the past I've found nginx handy to serve static assets (from, say, `/var/www/project/client/build`) for React builds, but because this deployment solution relies on dynamically populating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, etc.) to serve the build
