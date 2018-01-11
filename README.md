@@ -5,8 +5,8 @@
 2. Service hook fires; Travis CI is triggered
 3. Travis runs tests — (if branch === master?) creates React build and deploys
 4. This is where things get hazy...
-    - Because this deployment solution relies on dynamically creating/updating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, &c.) to serve the build
-    - To this end, I think one option is to create a new docker image on the spot, integrating the build files into the Express container (by creating a volume?), which would run as a script during the `after_success` stage in the `travis.yml`
+    - Because this deployment solution relies on dynamically creating/updating nginx configurations from a template, it makes sense to serve the React build via (an automatically proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, etc.) to serve the build
+    - To this end, I think one option is to create a new Docker image on the spot, giving the Express container access to the React build (by creating a volume?), which would run as a script during the `after_success` stage in the `travis.yml`
     - Alternatively, integrating the build into the Express container could be done on the production server
 5. Push using git to production server
 6. Production server triggers `post-receive` git hook
@@ -14,6 +14,7 @@
 
 
 ## Instructions
+(Your DNS must be set up to forward your domain to your current host for this to work)
 1. `$ git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
 2. `$ cd docker`
 3. `$ cp .env.example .env` — adjust variables as necessary
