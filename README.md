@@ -29,7 +29,7 @@ Note: what's below includes nothing of the workflow other than what would be run
 1. After running `./scripts/start`, two separate docker-compose files will be executed
     1. `nginx-proxy.yml` creates the following containers:
         - `nginx` — self-explanatory
-        - `jwilder/docker-gen` — detects any container changes by analyzing `docker.sock`; notifies `nginx` and `letsencrypt-nginx-proxy-companion` when necessary
+        - `jwilder/docker-gen` — detects any container changes by analyzing `docker.sock`; copies over new nginx config and notifies `nginx` and `letsencrypt-nginx-proxy-companion` when necessary
         - `jrcs/letsencrypt-nginx-proxy-companion` — automatically creates/maintains lets-encrypt config on notifications from `jwilder/docker-gen`
     2. `docker-compose.yml` creates the following containers:
         - `postgres` — self-explanatory (note: still need to research user/password envrionment variables)
