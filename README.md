@@ -25,6 +25,7 @@
 7. `post-receive` script handles any final loose ends before spinning up Docker images
 
 ## Current (in progress) workflow
+Note: what's below includes nothing of the workflow other than what would be run on the production server
 1. After running `./scripts/start`, two separate docker-compose files will be executed
     1. `nginx-proxy.yml` creates the following containers:
         - `nginx` — self-explanatory
