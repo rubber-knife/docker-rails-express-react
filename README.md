@@ -1,7 +1,5 @@
 # Docker setup for Rails API-only, Express, and React
 
-test
-
 ## Instructions
 1. `$ git clone git@github.com:rubber-knife/docker-rails-express-react.git docker`
 2. `$ cd docker`
