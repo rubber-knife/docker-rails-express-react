@@ -9,7 +9,7 @@
 5. Verify things are working — eg. check out `https://rails.your-domain.tld`
 
 #### Notes:
-- DNS must be set up to forward `your-domain.tld` to your current working host for this to work
+- This is meant to be run on your production server; DNS must be set up to forward `your-domain.tld` to your current working host for this to work
 - Only one instance of nginx can be bound to port 80; avoid potentionally conflicting instances by running something equivalent to `sudo service nginx stop` before beginning
 
 ## Workflow goals
