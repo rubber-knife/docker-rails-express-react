@@ -19,7 +19,7 @@
     - branch === master && build React && deploy to production
 4. This is where things get hazy...
     - In the past I've found it handy to manually include a basic nginx config to serve static assets (from, say, `/var/www/project/client/build`) for React builds, but because this deployment solution relies on dynamically populating nginx configurations from a template, it makes sense to serve the React build via (an automatically reverse-proxied) Express instead of adding nginx configuration manually (or copying additional config files, keeping them in version control, etc.) to serve the build
-    - To this end, one option might? be to configure the Express Dockerfile to map a volume (`./react/build:/express/public`) with the host which contains the React assets — then with Express it's just plain-old: `.use(express.static(__dirname + '/public'))`
+    - To this end, the most logical conclusion is to create and then attach a react-build volume to the Expressc container (`react-build:/express/public`). This just leaves configuring Express with plain-old: `.use(express.static(__dirname + '/public'))`
 5. Still from Travis, push using git to production server
 6. Production server triggers `post-receive` git hook
 7. `post-receive` script handles any final loose ends before spinning up Docker images
@@ -52,7 +52,7 @@ Note: what's below includes nothing of the workflow other than what would be run
             if [[ $ref =~ .*/master$ ]];
             then
                 echo "Received ref: $ref"
-                git --work-tree=www/var/project --git-dir=$HOME/project/.git checkout -f
+                git --work-tree=/var/www/project --git-dir=$HOME/project/.git checkout -f
                 # Other tasks go here...
             else
                 echo "Ref $ref received: ignoring"
