@@ -40,7 +40,7 @@ Note: what's below includes nothing of the workflow other than what would be run
 
 ## Miscellaneous
 1. `$ ./scripts/start` — initializes docker environment, eg. creates base network; runs `docker-compose` files
-2. `post-receive` hook example:
+2. `post-receive` hook example (not needed to get this repo up and running):
 
         #!/bin/bash
         unset GIT_INDEX_FILE
