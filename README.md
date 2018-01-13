@@ -48,7 +48,6 @@ Note: what's below includes nothing of the workflow other than what would be run
         while read oldrev newrev ref
 
         do
-
             if [[ $ref =~ .*/master$ ]];
             then
                 echo "Received ref: $ref"
