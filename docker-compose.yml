@@ -2,15 +2,13 @@ version: '3.3'
 
 services:
   express:
-    container_name: express
     build: ./express
     ports:
-      - '3001:3001'
+      - '3001:80'
     volumes:
       - ./express:/express
 
   react:
-    container_name: react
     build: ./react
     ports:
       - '3000:3000'

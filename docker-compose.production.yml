@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  express:
+    expose:
+      - '80'
+    environment:
+      - VIRTUAL_HOST=express.${HOST}
+      - LETSENCRYPT_HOST=express.${HOST}
+      - LETSENCRYPT_EMAIL=${EMAIL}
+  react:
+    command: echo "Service — 'react' — disabled in production"
+
+# networks:
+#   default:
+#     external:
+#       name: ${NETWORK}
