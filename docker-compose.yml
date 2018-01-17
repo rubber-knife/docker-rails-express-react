@@ -1,17 +1,13 @@
-version: '3'
+version: '3.3'
 
 services:
   express:
     container_name: express
     build: ./express
-    expose:
-      - '80'
+    ports:
+      - '3001:3001'
     volumes:
       - ./express:/express
-    environment:
-      - VIRTUAL_HOST=frontend.${HOST}
-      - LETSENCRYPT_HOST=frontend.${HOST}
-      - LETSENCRYPT_EMAIL=${EMAIL}
 
   react:
     container_name: react
@@ -21,8 +17,3 @@ services:
     volumes:
       - ./react:/client/
       - /client/node_modules
-
-networks:
-  default:
-    external:
-      name: ${NETWORK}

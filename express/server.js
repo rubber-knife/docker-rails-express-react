@@ -10,6 +10,5 @@ server
   .use(bodyParser.json())
   .use(compression())
   .use(express.static(__dirname + '/public'))
-  .use('/*', (req, res) => res.status(418).send('Oops'))
 
 module.exports = server
