@@ -18,7 +18,7 @@ curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > n
 docker-compose -f nginx-proxy.yml up -d
 
 # Spin up app-related services
-docker-compose up -f docker-compose.yml -f docker-compose.production.yml up
+docker-compose up -f docker-compose.yml -f docker-compose.production.yml up -d
 
 # Build react
 docker-compose run react npm run build
