@@ -9,7 +9,7 @@ if [ $TRAVIS_BRANCH == 'workflow/complete' ] ; then
 
     git add .
     git commit -m "Deploy"
-    git push --force deploy workflow/react
+    git push --force deploy workflow/complete
 else
     printf "\n\n\nNot deploying, since this branch isn't a deploy branch.\n\n\n"
 fi
