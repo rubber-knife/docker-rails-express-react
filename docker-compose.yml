@@ -3,15 +3,12 @@ version: '3.3'
 services:
   express:
     build: ./express
-    ports:
-      - '3001:80'
     volumes:
       - ./express:/express
+      - /express/node_modules
 
   react:
     build: ./react
-    ports:
-      - '3000:3000'
     volumes:
       - ./react:/client/
       - /client/node_modules
