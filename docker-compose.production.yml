@@ -6,7 +6,7 @@ services:
       - '80'
     environment:
       - VIRTUAL_HOST=express.${HOST}
-      - LETSENCRYPT_HOST=express.${HOST}
+      - LETSENCRYPT_HOST=texpress.${HOST}
       - LETSENCRYPT_EMAIL=${EMAIL}
   react:
     command: echo "Service — 'react' — disabled in production"

@@ -6,9 +6,14 @@ services:
     volumes:
       - ./express:/express
       - /express/node_modules
+      - react-build:/express/public
 
   react:
     build: ./react
     volumes:
       - ./react:/client/
       - /client/node_modules
+      - react-build:/client/build
+
+volumes:
+  react-build:
